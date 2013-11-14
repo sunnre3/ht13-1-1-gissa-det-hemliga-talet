@@ -115,7 +115,7 @@ namespace NumberGuessingGame.Tests
         }
 
         [TestMethod]
-        public void CheckMakeGuesskNoMoreGuesses()
+        public void CheckMakeGuessNoMoreGuesses()
         {
             var sn = new SecretNumber();
             var number = (int)GetFieldValue(sn, "_number");
