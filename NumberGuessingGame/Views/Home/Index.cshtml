@@ -1,0 +1,28 @@
+﻿@model NumberGuessingGame.ViewModels.SecretNumberViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<title>ASP.NET MVC - laboration 1</title>
+	</head>
+
+	<body>
+		<div id="wrapper">
+
+			<header id="site-header">
+				<h1>Gissa det hemliga talet</h1>	
+			</header>
+
+			<section id="site-content">
+				@Html.Partial("GameView", Model)
+			</section>
+
+		</div>
+	</body>
+</html>
