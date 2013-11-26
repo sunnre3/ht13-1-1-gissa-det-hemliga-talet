@@ -7,8 +7,8 @@
 	{
 		<p>
 			Gissa ett tal mellan 1 och 100:
-			@Html.TextBoxFor(model => model.Guess)
-			<input type="submit" value="Skicka gissning">
+			@Html.TextBoxFor(model => model.Guess, new { value = "" })
+			<input type="submit" value="Skicka gissning" class="btn btn-green">
 		</p>
 	}
 }
@@ -20,7 +20,7 @@ else
 		<p>
 			Gissa ett tal mellan 1 och 100:
 			@Html.TextBoxFor(model => model.Guess, new { disabled = "disabled" })
-			<input type="submit" value="Skicka gissning" disabled>
+			<input type="submit" value="Skicka gissning" class="btn btn-green" disabled>
 		</p>
 	}
 }

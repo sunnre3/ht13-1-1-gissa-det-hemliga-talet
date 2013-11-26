@@ -21,90 +21,23 @@ namespace NumberGuessingGame.ViewModels
 		[Range(1, 100)]
 		public int Guess { get; set; }
 
-		private string GuessNumberReadable
-		{
-			get
-			{
-				if (GuessedNumbers.Count() == 0)
-				{
-					return "första";
-				}
-
-				else if (GuessedNumbers.Count() == 1)
-				{
-					return "andra";
-				}
-
-				else if (GuessedNumbers.Count() == 2)
-				{
-					return "tredje";
-				}
-
-				else if (GuessedNumbers.Count() == 3)
-				{
-					return "fjärde";
-				}
-
-				else if (GuessedNumbers.Count() == 4)
-				{
-					return "femte";
-				}
-
-				else if (GuessedNumbers.Count() == 5)
-				{
-					return "sjätte";
-				}
-
-				else
-				{
-					return "sista";
-				}
-			}
-		}
-
 		public string Title
 		{
 			get
 			{
+				if (LastGuessedNumber.Outcome == Outcome.Right)
+				{
+					return "Rätt gissat!";
+				}
+
 				if (!CanMakeGuess)
 				{
 					return "Inga fler gissningar!";
 				}
 
-				else if (GuessedNumbers.Count() == 0)
-				{
-					return GuessNumberReadable + " gissningen";
-				}
 
-				else if (GuessedNumbers.Count() == 1)
-				{
-					return GuessNumberReadable + " gissningen";
-				}
-
-				else if (GuessedNumbers.Count() == 2)
-				{
-					return GuessNumberReadable + " gissningen";
-				}
-
-				else if (GuessedNumbers.Count() == 3)
-				{
-					return GuessNumberReadable + " gissningen";
-				}
-
-				else if (GuessedNumbers.Count() == 4)
-				{
-					return GuessNumberReadable + " gissningen";
-				}
-
-				else if (GuessedNumbers.Count() == 5)
-				{
-					return GuessNumberReadable + " gissningen";
-				}
-
-				else
-				{
-					return "Sista gissningen";
-				}
+				var readable = GuessNumberReadable();
+				return readable + " gissningen";
 			}
 		}
 
@@ -121,7 +54,8 @@ namespace NumberGuessingGame.ViewModels
 
 				else if (LastGuessedNumber.Outcome == Outcome.Right)
 				{
-					outcome = "Grattis! Du klarade det på " + GuessNumberReadable + " försöket.";
+					var readable = NumberToWord(GuessedNumbers.Count()).ToLower();
+					outcome = "Grattis! Du klarade det på <strong>" + readable + "</strong> försöket.";
 				}
 
 				else if (LastGuessedNumber.Outcome == Outcome.High)
@@ -140,6 +74,67 @@ namespace NumberGuessingGame.ViewModels
 				}
 
 				return outcome;
+			}
+		}
+
+		public string NumberToWord(int number)
+		{
+			if (number == 0)
+			{
+				return "Noll";
+			}
+
+			else if (number == 1)
+			{
+				return "Första";
+			}
+
+			else if (number == 2)
+			{
+				return "Andra";
+			}
+
+			else if (number == 3)
+			{
+				return "Tredje";
+			}
+
+			else if (number == 4)
+			{
+				return "Fjärde";
+			}
+
+			else if (number == 5)
+			{
+				return "Femte";
+			}
+
+			else if (number == 6)
+			{
+				return "Sjätte";
+			}
+
+			else if (number == 7)
+			{
+				return "Sjunde";
+			}
+
+			else
+			{
+				throw new ArgumentException();
+			}
+		}
+
+		private string GuessNumberReadable()
+		{
+			if (GuessedNumbers.Count() != 6)
+			{
+				return NumberToWord(GuessedNumbers.Count() + 1);
+			}
+
+			else
+			{
+				return "Sista";
 			}
 		}
 	}

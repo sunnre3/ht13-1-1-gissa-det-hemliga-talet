@@ -1,10 +1,10 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 body
 {
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	line-height: 30px;
+	font-size: 14px;
+	line-height: 20px;
 	color: #333;
 }
 
@@ -162,8 +162,8 @@ a:hover
 	border-radius: 4px;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 14px;
-	padding: 6px 12px;
+	font-size: 12px;
+	padding: 5px 12px;
 	text-align: center;
 	vertical-align: middle;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
@@ -191,6 +191,12 @@ a:hover
 .btn-green:hover
 {
 	background: #33940A;
+}
+
+.btn:disabled
+{
+	background: #aaa;
+	cursor: default;
 }
 
 .required

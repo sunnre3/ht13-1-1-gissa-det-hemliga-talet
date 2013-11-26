@@ -6,7 +6,7 @@
 }
 
 <div id="last-guess">
-	<p>@outcome</p>
+	<p>@Html.Raw(outcome)</p>
 </div>
 
 <div id="previous-guesses">
@@ -17,19 +17,27 @@
 			@(i+1)
 		</div>
 
-		@if (Model.GuessedNumbers[i].Outcome == Outcome.High)
+		@if (Model.GuessedNumbers[i].Outcome == Outcome.Right)
 		{
-			<div class="body high">
-				<p>↑</p>
-				<p>@Model.GuessedNumbers[i].Number</p>
+			<div class="body correct border-box">
+				<p class="correct">@Model.GuessedNumbers[i].Number</p>
+			</div>
+		}
+		
+	
+		else if (Model.GuessedNumbers[i].Outcome == Outcome.High)
+		{
+			<div class="body high border-box">
+				<p class="icon">↑</p>
+				<p class="number">@Model.GuessedNumbers[i].Number</p>
 			</div>
 		}
 		
 		else
 		{
-			<div class="body low">
-				<p>↓</p>
-				<p>@Model.GuessedNumbers[i].Number</p>
+			<div class="body low border-box">
+				<p class="icon">↓</p>
+				<p class="number">@Model.GuessedNumbers[i].Number</p>
 			</div>
 		}
 	</div>
