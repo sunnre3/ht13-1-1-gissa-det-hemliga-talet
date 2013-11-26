@@ -199,6 +199,11 @@ a:hover
 	cursor: default;
 }
 
+.btn:hover
+{
+	text-decoration: none;
+}
+
 .required
 {
 	color: #f00;

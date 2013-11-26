@@ -1,0 +1,34 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>ASP.NET MVC - laboration 1</title>
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/reset.css")">
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/basic.css")">
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/fonts.css")">
+	<link rel="stylesheet" type="text/css" href="@Url.Content("~/Styles/default.css")">
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<header id="site-header">
+			<h1>Gissa det hemliga talet</h1>
+		</header>
+
+		<section id="site-content">
+			<header id="content-header">
+				<h1>Spelomgången kunde inte fullföljas</h1>
+			</header>
+			<p>Du väntade för länge med att gissa varför spelomgången inte kunde fullföljas.</p>
+			@Html.ActionLink("Börja om", "Reset")
+		</section>
+
+	</div>
+</body>
+</html>

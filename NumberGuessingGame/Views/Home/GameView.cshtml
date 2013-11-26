@@ -6,3 +6,17 @@
 
 @Html.Partial("MakeGuessInput", Model)
 @Html.Partial("PreviousGuesses", Model)
+
+@* 
+  If the user has used up all of his
+  tries then offer him a way to reset.
+*@
+@if (!Model.CanMakeGuess)
+{
+	<p class="reset-link">@Html.ActionLink(
+		"Slumpa nytt tal",
+		"Reset",
+		"Home",
+		new {},
+		new { @class = "btn btn-blue" })</p>
+}

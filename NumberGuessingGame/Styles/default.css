@@ -45,7 +45,6 @@ header#content-header h1
 {
 	font-size: 24px;
 	line-height: 24px;
-	margin: 0;	
 }
 
 div#guess-input
@@ -61,6 +60,13 @@ div#guess-input #Guess
 	font-family: 'Courier New', monospace;
 	text-align: center;
 	margin: 0 5px;
+}
+
+div#guess-input span.input-error
+{
+	display: block;
+	margin: 5px 0;
+	color: #f00;
 }
 
 div.previous-guess
@@ -120,4 +126,9 @@ div.previous-guess div.high
 div.previous-guess div.low
 {
 	background: #fe9292;
+}
+
+p.reset-link
+{
+	margin: 7px 0;
 }

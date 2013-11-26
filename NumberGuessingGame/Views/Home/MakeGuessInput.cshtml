@@ -9,6 +9,7 @@
 			Gissa ett tal mellan 1 och 100:
 			@Html.TextBoxFor(model => model.Guess, new { value = "" })
 			<input type="submit" value="Skicka gissning" class="btn btn-green">
+			<span class="input-error">@Html.ValidationMessageFor(model => model.Guess)</span>
 		</p>
 	}
 }

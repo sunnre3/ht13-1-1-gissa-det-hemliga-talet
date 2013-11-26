@@ -17,10 +17,15 @@ namespace NumberGuessingGame.ViewModels
 
 		public GuessedNumber LastGuessedNumber { get; set; }
 
-		[Required]
-		[Range(1, 100)]
+		[Required(ErrorMessage = "Du måste göra en gissning.")]
+		[Range(1, 100, ErrorMessage = "Talet måste vara mellan 1 och 100.")]
 		public int Guess { get; set; }
 
+		// Number of guesses made.
+		public int NumberOfGuesses { get; set; }
+
+		// String property for getting the content header
+		// in the view.
 		public string Title
 		{
 			get
@@ -41,6 +46,8 @@ namespace NumberGuessingGame.ViewModels
 			}
 		}
 
+		// String property for retrieving what the last
+		// guess come out as.
 		public string LastGuessOutcome
 		{
 			get
@@ -77,6 +84,10 @@ namespace NumberGuessingGame.ViewModels
 			}
 		}
 
+		// General method for retrieving a word instead of a
+		// number to be more readable for our app.
+		// Only accepts 0 > 7 because that's all the app
+		// needs.
 		public string NumberToWord(int number)
 		{
 			if (number == 0)
@@ -125,9 +136,11 @@ namespace NumberGuessingGame.ViewModels
 			}
 		}
 
+		// Provides a readable word for the title in
+		// our view.
 		private string GuessNumberReadable()
 		{
-			if (GuessedNumbers.Count() != 6)
+			if (NumberOfGuesses < 6)
 			{
 				return NumberToWord(GuessedNumbers.Count() + 1);
 			}
