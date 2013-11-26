@@ -1,2 +1,37 @@
 ﻿@model NumberGuessingGame.ViewModels.SecretNumberViewModel
+@using NumberGuessingGame.Models
 
+@{
+	string outcome = Model.LastGuessOutcome;
+}
+
+<div id="last-guess">
+	<p>@outcome</p>
+</div>
+
+<div id="previous-guesses">
+@for (var i = 0; i < Model.GuessedNumbers.Count(); i++)
+{
+	<div class="previous-guess">
+		<div class="head">
+			@(i+1)
+		</div>
+
+		@if (Model.GuessedNumbers[i].Outcome == Outcome.High)
+		{
+			<div class="body high">
+				<p>↑</p>
+				<p>@Model.GuessedNumbers[i].Number</p>
+			</div>
+		}
+		
+		else
+		{
+			<div class="body low">
+				<p>↓</p>
+				<p>@Model.GuessedNumbers[i].Number</p>
+			</div>
+		}
+	</div>
+}
+</div>

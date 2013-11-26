@@ -127,7 +127,7 @@ namespace NumberGuessingGame.Models
 			}
 
 			// If the guess has already been made,
-			// set the Outcome t o OldGuess.
+			// set the Outcome to OldGuess.
 			else if (_guessedNumbers.Any(x => x.Number == guess))
 			{
 				guessedNumber.Outcome = Outcome.OldGuess;
@@ -148,9 +148,12 @@ namespace NumberGuessingGame.Models
 				guessedNumber.Outcome = Outcome.Low;
 			}
 
-			// Add the guessed number to the list
-			// and return the Outcome.
-			_guessedNumbers.Add(guessedNumber);
+			if (guessedNumber.Outcome != Outcome.OldGuess)
+			{
+				// Add the guessed number to the list
+				// and return the Outcome.
+				_guessedNumbers.Add(guessedNumber);
+			}
 
 			//Set the guess as the last guess made.
 			_lastGuessedNumber = guessedNumber;

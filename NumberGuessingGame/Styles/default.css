@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+.clearfix:after
+{
+	content: ".";
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+	clear: both;	
+}
+
+body
+{
+	background: #333;
+	color: #fff;
+	font-family: 'Open Sans';
+}
+
+div#wrapper
+{
+	width: 600px;
+	margin: 50px auto;
+	padding: 25px;
+}
+
+header#main-header h1
+{
+	text-transform: uppercase;
+	font-size: 38px;
+	line-height: 38px;
+	margin: 0;
+}
+
+div.update
+{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 14px;
+	letter-spacing: 1px;
+	margin: 1px 0 10px;
+}
+
+div.update a
+{
+	color: #bbb;
+}
+
+div.producer
+{
+	background: #fff;
+	color: #333;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	padding: 10px 25px;
+	border-radius: 6px;
+	float: left;
+}
+
+div.producer div.name
+{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+div.producer div.url
+{
+	font-size: 14px;
+	line-height: 14px;
+}
+
+div#broken-links
+{
+	margin-top: 5px;
+	padding: 5px;
+	border-top: 1px solid #444;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+div#broken-links p
+{
+	margin: 0;
+}
+
+div#broken-links ol
+{
+	margin-top: 5px;
+	margin-left: 18px;
+	list-style-type: decimal;
+}
+
+div#broken-links .broken-link a
+{
+	color: #aaa;
+}

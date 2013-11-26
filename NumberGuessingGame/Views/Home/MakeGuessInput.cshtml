@@ -3,9 +3,25 @@
 <div id="guess-input">
 @if (Model.CanMakeGuess)
 {
-	<p>
-		Gissa ett tal mellan 1 och 100:
-		@Html.TextBoxFor(model => model.Guess)
-	</p>
+	using (Html.BeginForm())
+	{
+		<p>
+			Gissa ett tal mellan 1 och 100:
+			@Html.TextBoxFor(model => model.Guess)
+			<input type="submit" value="Skicka gissning">
+		</p>
+	}
+}
+
+else
+{
+	using (Html.BeginForm())
+	{
+		<p>
+			Gissa ett tal mellan 1 och 100:
+			@Html.TextBoxFor(model => model.Guess, new { disabled = "disabled" })
+			<input type="submit" value="Skicka gissning" disabled>
+		</p>
+	}
 }
 </div>
